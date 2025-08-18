@@ -65,7 +65,7 @@ class OpenAITextGenerator(TextGenerator):
         oai_config = {
             "model": model,
             "temperature": config.temperature,
-            "max_tokens": max_tokens,
+            "max_completion_tokens": max_tokens,
             "top_p": config.top_p,
             "frequency_penalty": config.frequency_penalty,
             "presence_penalty": config.presence_penalty,
