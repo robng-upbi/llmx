@@ -18,14 +18,8 @@ providers:
             model: claude-3-5-sonnet-20240620
   openai:
     name: OpenAI
-    description: OpenAI's and AzureOpenAI GPT-3 and GPT-4 models.
+    description: OpenAI's and AzureOpenAI GPT-3, GPT-4 and GPT-5 models.
     models:
-      - name: gpt-4o # general model name, can be anything
-        max_tokens: 4096 # max supported tokens
-        model:
-          provider: openai
-          parameters:
-            model: gpt-4o 
       - name: gpt-4 # general model name, can be anything
         max_tokens: 8192 # max supported tokens
         model:
@@ -38,6 +32,66 @@ providers:
           provider: openai
           parameters:
             model: gpt-4-32k
+      - name: gpt-4o
+        max_tokens: 128000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-4o
+      - name: gpt-4o-mini
+        max_tokens: 128000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-4o-mini
+      - name: gpt-4.5
+        max_tokens: 128000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-4.5
+      - name: gpt-4.1
+        max_tokens: 1000000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-4.1
+      - name: gpt-4.1-mini
+        max_tokens: 1000000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-4.1-mini
+      - name: gpt-4.1-nano
+        max_tokens: 1000000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-4.1-nano
+      - name: gpt-5
+        max_tokens: 400000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-5
+      - name: gpt-5-mini
+        max_tokens: 400000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-5-mini
+      - name: gpt-5-nano
+        max_tokens: 400000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-5-nano
+      - name: gpt-5-chat
+        max_tokens: 400000
+        model:
+          provider: openai
+          parameters:
+            model: gpt-5-chat
       - name: gpt-3.5-turbo
         max_tokens: 4096
         model:
