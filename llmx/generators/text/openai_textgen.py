@@ -57,10 +57,18 @@ class OpenAITextGenerator(TextGenerator):
         use_cache = config.use_cache
         model = config.model or self.model_name
         prompt_tokens = num_tokens_from_messages(messages)
-        max_tokens = max(
-            self.model_max_token_dict.get(
-                model, 4096) - prompt_tokens - 10, 200
-        )
+        # max_tokens = max(
+        #     self.model_max_token_dict.get(
+        #         model, 4096) - prompt_tokens - 10, 200
+        # )
+
+        # New logic to handle max tokens more gracefully
+        max_tokens_calc = (self.model_max_token_dict.get(model, 4096) - prompt_tokens - 10)
+
+        if config.max_tokens <= max_tokens_calc:
+            max_tokens = config.max_tokens
+        else:
+            max_tokens = max_tokens_calc
 
         oai_config = {
             "model": model,
