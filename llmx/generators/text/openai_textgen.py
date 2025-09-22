@@ -65,7 +65,7 @@ class OpenAITextGenerator(TextGenerator):
         # New logic to handle max tokens more gracefully
         max_tokens_calc = (self.model_max_token_dict.get(model, 4096) - prompt_tokens - 10)
 
-        if config.max_tokens <= max_tokens_calc:
+        if config.max_tokens and (config.max_tokens <= max_tokens_calc):
             max_tokens = config.max_tokens
         else:
             max_tokens = max_tokens_calc
