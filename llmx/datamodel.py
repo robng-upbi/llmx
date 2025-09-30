@@ -35,6 +35,7 @@ class TextGenerationConfig:
     model: Optional[str] = None
     stop: Union[List[str], str, None] = None
     use_cache: bool = True
+    reasoning_effort: Optional[str] = None  # e.g., "minimal", "low", "medium", "high"
 
     def __post_init__(self):
         self._fields_dict = asdict(self)
