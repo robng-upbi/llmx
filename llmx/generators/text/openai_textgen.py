@@ -70,16 +70,29 @@ class OpenAITextGenerator(TextGenerator):
         else:
             max_tokens = max_tokens_calc
 
-        oai_config = {
-            "model": model,
-            "temperature": config.temperature,
-            "max_completion_tokens": max_tokens,
-            "top_p": config.top_p,
-            "frequency_penalty": config.frequency_penalty,
-            "presence_penalty": config.presence_penalty,
-            "n": config.n,
-            "messages": messages,
-        }
+        if model == 'gpt-5':
+            oai_config = {
+                "model": model,
+                "reasoning_effort": config.reasoning_effort,
+                "temperature": config.temperature,
+                "max_completion_tokens": max_tokens,
+                "top_p": config.top_p,
+                "frequency_penalty": config.frequency_penalty,
+                "presence_penalty": config.presence_penalty,
+                "n": config.n,
+                "messages": messages,
+            }
+        else:
+            oai_config = {
+                "model": model,
+                "temperature": config.temperature,
+                "max_completion_tokens": max_tokens,
+                "top_p": config.top_p,
+                "frequency_penalty": config.frequency_penalty,
+                "presence_penalty": config.presence_penalty,
+                "n": config.n,
+                "messages": messages,
+            }
 
         self.model_name = model
         cache_key_params = (oai_config) | {"messages": messages}
